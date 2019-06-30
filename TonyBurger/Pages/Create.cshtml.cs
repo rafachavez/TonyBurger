@@ -12,14 +12,14 @@ namespace TonyBurger.Pages
 {
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
         [BindProperty]
         public Microsoft.AspNetCore.Http.IFormFile file { get; set; }
         [BindProperty]
         public byte[] Image { get; set; }
-        public CreateModel(ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext db)
         {
-            _context = context;
+            _db = db;
         }
 
         public IActionResult OnGet()
@@ -45,8 +45,8 @@ namespace TonyBurger.Pages
 
             Burger.Image = this.Image;
             Burger.ImageContentType = "file";
-            _context.Burger.Add(Burger);
-            await _context.SaveChangesAsync();
+            _db.Burger.Add(Burger);
+            await _db.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
