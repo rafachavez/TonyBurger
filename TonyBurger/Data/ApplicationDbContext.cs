@@ -15,6 +15,6 @@ namespace TonyBurger.Data
 
         }
 
-        public DbSet<Burger> Burgers { get; set; }
+        public DbSet<Burger> Burger { get; set; }
     }
 }
