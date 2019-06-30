@@ -1,0 +1,62 @@
+﻿@page
+@model CreateModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Pie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Burger.Name" class="control-label"></label>
+                <input asp-for="Burger.Name" class="form-control" />
+                <span asp-validation-for="Burger.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.ShortDescription" class="control-label"></label>
+                <input asp-for="Burger.ShortDescription" class="form-control" />
+                <span asp-validation-for="Burger.ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.LongDescription" class="control-label"></label>
+                <input asp-for="Burger.LongDescription" class="form-control" />
+                <span asp-validation-for="Burger.LongDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.Price" class="control-label"></label>
+                <input asp-for="Burger.Price" class="form-control" />
+                <span asp-validation-for="Burger.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Burger.Image" class="control-label"></label>
+                <input asp-for="file" type="file" class="form-control" />
+                <span asp-validation-for="Burger.ImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Burger.IsBurgerOfTheWeek" /> @Html.DisplayNameFor(model => model.Burger.IsBurgerOfTheWeek))
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

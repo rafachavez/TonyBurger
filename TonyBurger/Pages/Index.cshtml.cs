@@ -12,18 +12,18 @@ namespace TonyBurger.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _db;
 
-        public IndexModel(ApplicationDbContext context)
+        public IndexModel(ApplicationDbContext db)
         {
-            _context = context;
+            _db = db;
         }
             
         public IList<Burger> Burger { get; set; }
 
         public async Task OnGetAsync()
         {
-            Burger = await _context.Burger.ToListAsync();
+            Burger = await _db.Burger.ToListAsync();
         }
     }
 }

@@ -1,28 +1,37 @@
 ﻿@page
-@model TonyBurger.Pages.IndexModel
+@model IndexModel
 
-<h2>Welcome to Tony Burger</h2>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="align-content-center">Welcome to Tony Burger</h2>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
 
-@foreach (var item in Model.Burger)
-{
-    <div class="col-sm-4 col-lg-4 col-md-4">
-        <div class="thumbnail">
-            <img class="img img-thumbnail" src="@item.GetInlineImageSrc()" />
-            <div class="caption">
-                <h3 class="pull-right">@Html.DisplayFor(modelItem => item.Price)</h3>
-                <h3 class="text-success">
-                    @Html.DisplayFor(modelItem => item.Name)
-                </h3>
-                <p>@Html.DisplayFor(modelItem => item.ShortDescription)</p>
-            </div>
-            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-        </div>
-    </div>
+<br /><br />
 
-}
+<div class="row">
+
+    @foreach (var item in Model.Burger)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img class="img img-thumbnail" src="@item.GetInlineImageSrc()" />
+                <div class="caption">
+                    <h3 class="pull-right">@Html.DisplayFor(modelItem => item.Price)</h3>
+                    <h3 class="text-success">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </h3>
+                    <p>@Html.DisplayFor(modelItem => item.ShortDescription)</p>
+                </div>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </div>
+        </div>
+
+    }
+</div>
