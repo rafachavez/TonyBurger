@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TonyBurger.Models;
 
 namespace TonyBurger.Data
 {
@@ -11,6 +12,9 @@ namespace TonyBurger.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+
         }
+
+        public DbSet<Burger> Burgers { get; set; }
     }
 }
