@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TonyBurger.Data;
@@ -13,6 +14,8 @@ namespace TonyBurger.Pages
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
+      
+
         [BindProperty]
         public Microsoft.AspNetCore.Http.IFormFile file { get; set; }
         [BindProperty]
@@ -20,6 +23,7 @@ namespace TonyBurger.Pages
         public CreateModel(ApplicationDbContext db)
         {
             _db = db;
+          
         }
 
         public IActionResult OnGet()

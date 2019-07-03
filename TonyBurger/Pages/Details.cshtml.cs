@@ -14,6 +14,7 @@ namespace TonyBurger.Pages
     {
         private readonly ApplicationDbContext _db;
 
+
         public DetailsModel(ApplicationDbContext db)
         {
             _db = db;
