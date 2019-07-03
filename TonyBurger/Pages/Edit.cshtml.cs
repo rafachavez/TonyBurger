@@ -74,7 +74,7 @@ namespace TonyBurger.Pages
                     throw;
                 }
             }
-
+            
             return RedirectToPage("./Index");
         }
 
